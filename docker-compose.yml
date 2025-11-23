@@ -7,6 +7,8 @@ services:
       - ./database:/directus/database
       - ./uploads:/directus/uploads
       - ./extensions:/directus/extensions
+    env_file:
+      - .env
     environment:
       SECRET: "replace-with-random-value"
       ADMIN_EMAIL: "admin@example.com"
@@ -14,3 +16,7 @@ services:
       DB_CLIENT: "sqlite3"
       DB_FILENAME: "/directus/database/data.db"
       WEBSOCKETS_ENABLED: "true"
+      PUBLIC_URL: "http://localhost:8055"
+      WEBSOCKETS_LOGS_ENABLED: "true"
+      WEBSOCKETS_LOGS_LEVEL: "trace"
+      WEBSOCKETS_LOGS_STYLE: "pretty"
